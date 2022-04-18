@@ -12,6 +12,14 @@ a {
 :root,
 body {
   height: 100%;
+
+  --background-color: #f7f0f0;
+  --color: #000000;
+  --feedback-bg-color: #ffffff;
+  --feedback-secondary-color: yellow;
+  --feedback-primary-color: black;
+  --feedback-icon-color: #ffffff;
+  --feedback-form-input: #f4f4f4;
 }
 body {
   margin: 0;
@@ -60,98 +68,38 @@ tbody td:hover:before {
   z-index: -1;
 }
 
-button,
-button::after {
-  width: 380px;
-  height: 86px;
-  font-size: 36px;
-  font-family: "Bebas Neue", cursive;
-  background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
-  border: 0;
-  color: #fff;
-  letter-spacing: 3px;
-  line-height: 88px;
-  box-shadow: 6px 0px 0px #00e6f6;
-  outline: transparent;
-  position: relative;
+button {
+  display: grid;
+  place-content: center;
 }
-button::after {
-  --slice-0: inset(50% 50% 50% 50%);
-  --slice-1: inset(80% -6px 0 0);
-  --slice-2: inset(50% -6px 30% 0);
-  --slice-3: inset(10% -6px 85% 0);
-  --slice-4: inset(40% -6px 43% 0);
-  --slice-5: inset(80% -6px 5% 0);
-  content: "AVAILABLE NOW";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    45deg,
-    transparent 3%,
-    #00e6f6 3%,
-    #00e6f6 5%,
-    #ff013c 5%
-  );
-  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
-  clip-path: var(--slice-0);
+
+button {
+  padding: 10px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 4px;
+  border-bottom-left-radius: 0;
+  background-color: var(--feedback-secondary-color);
+  color: var(--feedback-primary-color);
+  transition: all 0.3s;
 }
-button:hover::after {
-  animation: 1s glitch;
-  animation-timing-function: steps(2, end);
+button:hover {
+  border-radius: 0px;
+  color: var(--feedback-primary-color);
+  background-color: var(--background-color);
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffacac' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  animation: animatedBackground 5s linear infinite alternate;
 }
-@keyframes glitch {
-  0% {
-    clip-path: var(--slice-1);
-    transform: translate(-20px, -10px);
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
   }
-  10% {
-    clip-path: var(--slice-3);
-    transform: translate(10px, 10px);
-  }
-  20% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 10px);
-  }
-  30% {
-    clip-path: var(--slice-3);
-    transform: translate(0px, 5px);
-  }
-  40% {
-    clip-path: var(--slice-2);
-    transform: translate(-5px, 0px);
-  }
-  50% {
-    clip-path: var(--slice-3);
-    transform: translate(5px, 0px);
-  }
-  60% {
-    clip-path: var(--slice-4);
-    transform: translate(5px, 10px);
-  }
-  70% {
-    clip-path: var(--slice-2);
-    transform: translate(-10px, 10px);
-  }
-  80% {
-    clip-path: var(--slice-5);
-    transform: translate(20px, -10px);
-  }
-  90% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 0px);
-  }
-  100% {
-    clip-path: var(--slice-1);
-    transform: translate(0);
+  to {
+    background-position: 100% 0;
   }
 }
 
 .number {
-  height: 86px;
   border: 8px dashed black;
 }
 
@@ -182,6 +130,7 @@ td {
 
 .getValue {
   margin: 30px 0 30px;
+  display: flex;
 }
 
 .main-table-iterations-number {
