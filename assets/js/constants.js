@@ -1,0 +1,1 @@
+const goBtn = document.querySelector('.getValue > button');

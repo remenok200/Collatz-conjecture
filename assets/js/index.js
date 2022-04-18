@@ -1,0 +1,1 @@
+goBtn.addEventListener('click', calculate);
