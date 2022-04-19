@@ -12,6 +12,7 @@ function calculate(e) {
       throw new RangeError("Input number must be a integer!");
     }
 
+    goBtn.remove();
     form.append(createElement("button", { classNames: ["reset"] }, "Clear."));
     main.append(
       createElement(
@@ -39,6 +40,9 @@ function calculate(e) {
     const table = document.querySelector(".main-table");
 
     let counter = 0;
+    let maximum = numberFromForm;
+    let average = 0;
+    let summ = 0;
     while (numberFromForm !== 1) {
       if (numberFromForm % 2 === 0) {
         const temp = numberFromForm;
@@ -65,7 +69,11 @@ function calculate(e) {
             )
           )
         );
-        console.log(numberFromForm, counter);
+
+        summ += numberFromForm;
+        if (numberFromForm > maximum) {
+          maximum = numberFromForm;
+        }
       } else {
         const temp = numberFromForm;
 
@@ -91,9 +99,28 @@ function calculate(e) {
             )
           )
         );
-        console.log(numberFromForm, counter);
+
+        summ += numberFromForm;
+        if (numberFromForm > maximum) {
+          maximum = numberFromForm;
+        }
       }
     }
+    average = summ / counter;
+    table.append(
+      "tfoot",
+      {},
+      createElement(
+        "th",
+        { classNames: ["main-table-footer-item"], attributes: { colspan: '2' } },
+        `Maximal value: ${maximum}`
+      ),
+      createElement(
+        "th",
+        { classNames: ["main-table-footer-item"], attributes: { colspan: '2' } },
+        `Average: ${average}`
+      )
+    );
   } catch (e) {
     throw new Error(e);
   }
