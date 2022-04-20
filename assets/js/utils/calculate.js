@@ -13,6 +13,7 @@ function calculate(e) {
     }
 
     goBtn.remove();
+    number.disabled = true;
     form.append(createElement("button", { classNames: ["reset"] }, "Clear."));
     main.append(
       createElement(
@@ -108,16 +109,20 @@ function calculate(e) {
     }
     average = summ / counter;
     table.append(
-      "tfoot",
-      {},
       createElement(
         "th",
-        { classNames: ["main-table-footer-item"], attributes: { colspan: '2' } },
+        {
+          classNames: ["main-table-footer-item"],
+          attributes: { colspan: "2" },
+        },
         `Maximal value: ${maximum}`
       ),
       createElement(
         "th",
-        { classNames: ["main-table-footer-item"], attributes: { colspan: '2' } },
+        {
+          classNames: ["main-table-footer-item"],
+          attributes: { colspan: "2" },
+        },
         `Average: ${average}`
       )
     );
