@@ -131,6 +131,8 @@ td {
 .getValue {
   margin: 30px 0 30px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .main-table-footer-item {
@@ -158,4 +160,10 @@ td {
 .author-link-first:hover,
 .author-link-second:hover {
   border-bottom: 2px dashed orange;
+}
+
+@media screen and (min-width: 630px) {
+  .getValue {
+    justify-content: left;
+  }
 }
