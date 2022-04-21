@@ -112,6 +112,11 @@ button:hover {
   padding: 15px;
 }
 
+.main-table-wrapper {
+  overflow: scroll;
+  overflow-y: hidden;
+}
+
 .main-table-caption {
   text-align: center;
   font-size: 1.5rem;
@@ -165,5 +170,11 @@ td {
 @media screen and (min-width: 630px) {
   .getValue {
     justify-content: left;
+  }
+
+  .main-table-wrapper {
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
 }

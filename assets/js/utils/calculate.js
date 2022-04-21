@@ -17,23 +17,27 @@ function calculate(e) {
     form.append(createElement("button", { classNames: ["reset"] }, "Clear."));
     main.append(
       createElement(
-        "table",
-        { classNames: ["main-table"] },
+        "div",
+        { classNames: ["main-table-wrapper"] },
         createElement(
-          "caption",
-          { classNames: ["main-table-caption"] },
-          "Calculations"
-        ),
-        createElement(
-          "tbody",
-          { classNames: ["main-table-contents"] },
+          "table",
+          { classNames: ["main-table"] },
           createElement(
-            "tr",
-            {},
-            createElement("td", {}, "Iteration number"),
-            createElement("td", {}, "Contents of the calculation"),
-            createElement("td", {}, "Result"),
-            createElement("td", {}, "Picture")
+            "caption",
+            { classNames: ["main-table-caption"] },
+            "Calculations"
+          ),
+          createElement(
+            "tbody",
+            { classNames: ["main-table-contents"] },
+            createElement(
+              "tr",
+              {},
+              createElement("td", {}, "Iteration number"),
+              createElement("td", {}, "Contents of the calculation"),
+              createElement("td", {}, "Result"),
+              createElement("td", {}, "Picture")
+            )
           )
         )
       )
