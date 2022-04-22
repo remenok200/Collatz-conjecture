@@ -3,15 +3,18 @@ function calculate(e) {
 
   let numberFromForm = Number(number.value);
   try {
-    if (typeof numberFromForm !== "number") {
+    if (typeof numberFromForm !== "number" || Number.isNaN(numberFromForm)) {
       form.reset();
       throw new TypeError("Input number must be a number!");
     }
-    if (!Number.isInteger(numberFromForm)) {
+    if (!Number.isInteger(numberFromForm) || numberFromForm == "") {
       form.reset();
       throw new RangeError("Input number must be a integer!");
     }
 
+    number.style.textAlign = "center";
+    number.style.fontWeight = "bold";
+    inputError.remove();
     goBtn.remove();
     number.disabled = true;
     form.append(createElement("button", { classNames: ["reset"] }, "Clear."));
@@ -131,6 +134,7 @@ function calculate(e) {
       )
     );
   } catch (e) {
+    inputError.style.visibility = "visible";
     throw new Error(e);
   }
 }

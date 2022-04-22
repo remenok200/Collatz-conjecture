@@ -117,6 +117,15 @@ button:hover {
   overflow-y: hidden;
 }
 
+.input-error {
+  color: white;
+  background: red;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  border: 4px dashed white;
+}
+
 .main-table-caption {
   text-align: center;
   font-size: 1.5rem;
@@ -150,6 +159,7 @@ td {
   align-items: flex-end;
   text-decoration: none;
   margin: 30px;
+  padding-bottom: 20px;
 }
 
 .author-link-first,
