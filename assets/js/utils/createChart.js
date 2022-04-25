@@ -1,10 +1,9 @@
 function createChart(xValues, yValues) {
+    main.append(createElement('canvas', {classNames: ['myChart'], attributes: {width: '800', height: '450'}}))
+    
     Chart.defaults.global.defaultFontColor = 'white';
     
-    var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-    var yValues = [1,8,8,9,9,9,10,11,14,14,15];
-    
-    new Chart("myChart", {
+    new Chart(document.querySelector('.myChart'), {
       type: "line",
       data: {
         labels: xValues,

@@ -115,6 +115,8 @@ button:hover {
 .main-table-wrapper {
   overflow: scroll;
   overflow-y: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .input-error {
@@ -188,4 +190,8 @@ td {
     overflow-y: hidden;
     overflow-x: hidden;
   }
+}
+
+.myChart {
+  padding-top: 35px;
 }

@@ -1,6 +1,9 @@
 function calculate(e) {
   e.preventDefault();
 
+  xValues.length = 0;
+  yValues.length = 0;
+
   let numberFromForm = Number(number.value);
   try {
     if (typeof numberFromForm !== "number" || Number.isNaN(numberFromForm)) {
@@ -45,6 +48,7 @@ function calculate(e) {
         )
       )
     );
+
     const table = document.querySelector(".main-table");
 
     let counter = 0;
@@ -56,7 +60,9 @@ function calculate(e) {
         const temp = numberFromForm;
 
         numberFromForm /= 2;
+        yValues.push(numberFromForm);
         counter++;
+        xValues.push(counter);
 
         table.append(
           createElement(
@@ -86,7 +92,9 @@ function calculate(e) {
         const temp = numberFromForm;
 
         numberFromForm = numberFromForm * 3 + 1;
+        yValues.push(numberFromForm);
         counter++;
+        xValues.push(counter);
 
         table.append(
           createElement(
@@ -133,6 +141,8 @@ function calculate(e) {
         `Average: ${average}`
       )
     );
+
+    createChart(xValues, yValues);
   } catch (e) {
     inputError.style.visibility = "visible";
     throw new Error(e);
