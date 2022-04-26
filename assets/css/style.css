@@ -126,6 +126,7 @@ button:hover {
   font-weight: bold;
   text-align: center;
   border: 4px dashed white;
+  visibility: hidden;
 }
 
 .main-table-caption {
@@ -180,6 +181,10 @@ td {
   border-bottom: 2px dashed orange;
 }
 
+.myChart {
+  padding-top: 35px;
+}
+
 @media screen and (min-width: 630px) {
   .getValue {
     justify-content: left;
@@ -190,8 +195,4 @@ td {
     overflow-y: hidden;
     overflow-x: hidden;
   }
-}
-
-.myChart {
-  padding-top: 35px;
 }
